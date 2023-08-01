@@ -8,7 +8,7 @@ export class AppController {
     this.appService = appService;
   }
 
-  @Get()
+  @Get('Klinsmann')
   getHello() {
     return this.appService.getHello();
   }

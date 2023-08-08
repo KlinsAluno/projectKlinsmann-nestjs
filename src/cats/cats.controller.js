@@ -46,9 +46,10 @@ export class CatsController {
   remove(id, res) {
     const indexGatoEncontrado = GATOS.findIndex((gato) => gato.id == id);
     if (indexGatoEncontrado >= 0) {
-      res.status(HttpStatus.NO_CONTENT).sent();
+      GATOS.splice(indexGatoEncontrado, 1)
+      res.status(HttpStatus.NO_CONTENT).send();
     } else {
-      res.status(HttpStatus.NOT_FOUND).sent();
+      res.status(HttpStatus.NOT_FOUND).send();
     }
   }
 }

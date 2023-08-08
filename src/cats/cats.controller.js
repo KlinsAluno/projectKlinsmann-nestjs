@@ -5,6 +5,7 @@ import {
   Controller,
   Delete,
   Get,
+  Put,
   Post,
   Param,
   Body,
@@ -69,5 +70,11 @@ export class CatsController {
     GATOS.push(cat);
     res.status(HttpStatus.CREATED).json(cat);
     // return `Cadastrando um gato ${JSON.stringify(cat)}`;
+  }
+
+  @Put(':id')
+  @Bind(Param('id'), Body())
+  update(id, cat) {
+    return `Atualizando gato com id ${id} e valores ${JSON.stringify(cat)}.`;
   }
 }

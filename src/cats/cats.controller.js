@@ -1,4 +1,14 @@
-import { Bind, Res, HttpStatus, Controller, Delete, Get, Param } from '@nestjs/common';
+import {
+  Bind,
+  Res,
+  HttpStatus,
+  Controller,
+  Delete,
+  Get,
+  Post,
+  Param,
+  Body,
+} from '@nestjs/common';
 
 const GATOS = [
   {
@@ -46,10 +56,16 @@ export class CatsController {
   remove(id, res) {
     const indexGatoEncontrado = GATOS.findIndex((gato) => gato.id == id);
     if (indexGatoEncontrado >= 0) {
-      GATOS.splice(indexGatoEncontrado, 1)
+      GATOS.splice(indexGatoEncontrado, 1);
       res.status(HttpStatus.NO_CONTENT).send();
     } else {
       res.status(HttpStatus.NOT_FOUND).send();
     }
+  }
+
+  @Post()
+  @Bind(Body())
+  create(cat) {
+    return `Cadastro um gato ${JSON.stringify(cat)}.`;
   }
 }

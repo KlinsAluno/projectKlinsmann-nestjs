@@ -16,7 +16,7 @@ export class CatsService {
   }
 
   findIndexById(id) {
-    return this.cats.findIndexById((cat) => cat.id == id);
+    return this.cats.findIndex((cat) => cat.id == id);
   }
 
   create(cat) {

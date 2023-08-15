@@ -10,6 +10,11 @@ export class CatsService {
     return this.cats;
   }
 
+  findById(id) {
+    return this.cats.find((cat) => cat.id == id);
+    // GATOS.find((gato) => gato.id == params.id);
+  }
+
   create(cat) {
     this.cats.push(cat);
   }

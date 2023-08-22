@@ -27,4 +27,8 @@ export class CatsService {
     this.cats.splice(index, 1);
     // GATOS.splice(indexGatoEncontrado, 1);
   }
+
+  update(index, cat) {
+    this.cats.splice(index, 1, cat);
+  }
 }
